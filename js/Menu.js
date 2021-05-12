@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     let canvas = document.getElementById("canvasGame");
-
+    let botonReset = document.getElementById("reset");
     canvas.width = 1200;
     canvas.height = 900;
     let ctx = canvas.getContext("2d");
@@ -20,5 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         juego1.stopDragging();
 
     });
-
+    botonReset.addEventListener('click', () => {
+        juego1 = new Juego(ctx, canvas.width, canvas.height);
+        juego1.draw();
+    });
 });

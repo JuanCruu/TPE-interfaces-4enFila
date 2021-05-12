@@ -11,3 +11,90 @@
 canvas {
     border: 1px solid black;
 }
+
+nav {
+    background-color: rgb(52, 79, 97);
+    padding: 3px;
+}
+
+.btnBlue {
+    background-color: rgb(157, 157, 255);
+}
+
+.btnOrange {
+    background-color: rgb(251, 201, 144);
+}
+
+.btnDanger {
+    background-color: rgb(253, 74, 74);
+}
+
+.btnTranka {
+    background-color: rgb(80, 255, 74);
+}
+
+.row {
+    margin-left: 0px;
+}
+
+h1,
+h2 {
+    margin-top: 45px;
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+#buttonGrayScale,
+#buttonColour {
+    padding: 25px;
+    background-color: rgba(255, 170, 154, 1);
+}
+
+a,
+span,
+.nav-link {
+    color: black;
+    text-decoration: none;
+}
+
+span {
+    padding: 1em;
+}
+
+a:hover {
+    color: rgba(255, 170, 154, 1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: rgb(165, 165, 159);
+    color: white;
+    font-weight: 500;
+}
+
+canvas {
+    margin-bottom: 25px;
+}
+
+.logoExa {
+    padding-bottom: 5px;
+}
+
+div.container_info_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.codExample {
+    color: orangered;
+}
+
+.container_canvas {
+    border: 1px solid;
+}
