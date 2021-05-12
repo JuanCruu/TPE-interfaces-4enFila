@@ -22,7 +22,7 @@ class Tablero {
     showTurn() {
 
         var fichaTurno = new Image();
-        fichaTurno.src = '../image/TurnoFicha.png';
+        fichaTurno.src = '../images/TurnoFicha.png';
         if (this.primerTurno == 1) {
             fichaTurno.onload = () => {
                 this.primerTurno = 2;
@@ -48,13 +48,13 @@ class Tablero {
         var michiVictory, pajaroVictory;
         if (numero == 2) {
             michiVictory = new Image();
-            michiVictory.src = '../image/evilVictory.jpg'
+            michiVictory.src = '../images/evilVictory.jpg'
             michiVictory.onload = () => {
                 this.ctx.drawImage(michiVictory, 350, 200);
             }
         } else {
             pajaroVictory = new Image();
-            pajaroVictory.src = '../image/suprime victory (2).jpg'
+            pajaroVictory.src = '../images/suprime victory (2).jpg'
             pajaroVictory.onload = () => {
                 this.ctx.drawImage(pajaroVictory, 340, 200, 500, 400);
             }
@@ -64,7 +64,7 @@ class Tablero {
 
     loadImageTeam1() {
         var bird = new Image();
-        bird.src = '../image/michi.png';
+        bird.src = '../images/michi.png';
         bird.onload = () => {
             for (let i = 0; i < 16; i++) {
                 this.fichasTeam1.push(new Ficha(1150, 140 + 30 * i, 46, bird, this.ctx));
@@ -75,7 +75,7 @@ class Tablero {
     }
     loadImageTeam2() {
         var michi = new Image();
-        michi.src = '../image/bird.png';
+        michi.src = '../images/bird.png';
         michi.onload = () => {
             for (let i = 0; i < 16; i++) {
                 this.fichasTeam2.push(new Ficha(60, 140 + 30 * i, 46, michi, this.ctx));
