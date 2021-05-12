@@ -1,0 +1,13 @@
+#box {
+    color: #6c6c6c;
+    transition: color .5 s ease-out;
+}
+
+#box:hover {
+    color: aqua;
+    transition: color .5 s ease-in;
+}
+
+canvas {
+    border: 1px solid black;
+}
