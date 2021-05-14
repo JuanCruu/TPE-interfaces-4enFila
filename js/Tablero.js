@@ -28,7 +28,6 @@ class Tablero {
                     this.ctx.drawImage(fichaTurno, 890, 600, 424, 300);
                 } else {
                     this.ctx.drawImage(fichaTurno, -80, 600, 424, 300);
-
                 }
             }
         }
@@ -138,16 +137,41 @@ class Tablero {
             let y = this.getRowAvailable(x); //busca una posicion disponible en el eje y
             this.moveChip(x, y, ficha) //mueve la ficha a una posicion valida
             ficha.modoBloqueado = true; //bloquea la ficha en el tablero
+            this.esEmpate()
             if (this.cargarFilas(y, x).resultado) { //chequea por un ganador
                 this.bloquearFichas(); //si lo hay, bloquea todas las fichas
                 this.showWinner(this.cargarFilas(y, x).ganador) //muestra al ganador con el jugador que se retorno
             }
+
             this.turnoActivo = !this.turnoActivo; //sino hay ganador,cambia el turno y el juego sigue
             return {
                 // x,
                 // y,
                 resultado: true,
             };
+        }
+    }
+    esEmpate() {
+        let fichas1 = false
+        let fichas2 = false
+        this.fichasTeam1.forEach(ficha => {
+            if (ficha.modoBloqueado == false) {
+                fichas1 = true
+            }
+        });
+        this.fichasTeam2.forEach(ficha => {
+            if (ficha.modoBloqueado == false) {
+                fichas2 = true
+            }
+        })
+        if (fichas1 == false && fichas2 == false) {
+            var empate = new Image();
+            empate.src = './images/empate.png'
+            empate.onload = () => {
+                this.ctx.drawImage(empate, 345, 200, 500, 400)
+                this.ctx.font = '50px serif';
+                this.ctx.fillText('Empate', 525, 90);
+            }
         }
     }
     bloquearFichas() { //al finalizar el juego no se deberian poder seguir moviendo las fichas
