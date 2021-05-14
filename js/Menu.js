@@ -4,24 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = 1200;
     canvas.height = 900;
     let ctx = canvas.getContext("2d");
+    ////////////////////////////////////////////tomo los elementos del html
+    let newGame = new Juego(ctx, canvas.width, canvas.height); // creo una instancia de juego
+    newGame.draw(); //dibujo el juego(tablero,fichas,imagene)
 
-    let juego1 = new Juego(ctx, canvas.width, canvas.height);
-    juego1.draw();
-
-    canvas.addEventListener("mousedown", (eMouseDown) => {
-        if (juego1.checkHit(eMouseDown.offsetX, eMouseDown.offsetY)) {
-            canvas.addEventListener("mousemove", (eMouseMove) => {
-                juego1.handleDrag(eMouseMove.offsetX, eMouseMove.offsetY);
+    canvas.addEventListener("mousedown", (evento) => { //escucha el evento "click abajo"y si clikeo en una ficha 
+        if (newGame.checkHit(evento.offsetX, evento.offsetY)) { //ejecuta el evento mover o arrastrar(hacia la posiscion en la que se mueve el puntero)
+            canvas.addEventListener("mousemove", (evento) => {
+                newGame.ArrastrarFicha(evento.offsetX, evento.offsetY);
             });
         }
     });
-    canvas.addEventListener("mouseup", (eMouseUp) => {
-        canvas.removeEventListener("mousemove", juego1.handleDrag);
-        juego1.stopDragging();
-
+    canvas.addEventListener("mouseup", (e) => { //escucha el evento "mouse arriva",remueve el evento de arrastrar ficha y ejecuta todos los procesos de soltar la ficha
+        canvas.removeEventListener("mousemove", newGame.ArrastrarFicha);
+        newGame.soltarFicha();
     });
-    botonReset.addEventListener('click', () => {
-        juego1 = new Juego(ctx, canvas.width, canvas.height);
-        juego1.draw();
+    botonReset.addEventListener('click', () => { //al cliquearse toma la instancia newGame,y la re-establece con los valores por defecto
+        newGame = new Juego(ctx, canvas.width, canvas.height);
+        newGame.draw(); //redibuja el tablero
     });
 });

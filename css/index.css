@@ -8,13 +8,13 @@
     transition: color .5 s ease-in;
 }
 
-canvas {
-    border: 1px solid black;
-}
-
 nav {
     background-color: rgb(52, 79, 97);
     padding: 3px;
+}
+
+canvas {
+    border: 1px solid black;
 }
 
 .btnBlue {
