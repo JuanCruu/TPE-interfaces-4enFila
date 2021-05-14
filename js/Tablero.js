@@ -152,6 +152,9 @@ class Tablero {
         }
     }
     esEmpate() {
+        //crea 2 variables en falso y recorre los arreglos de ficha, si encuentra una ficha que no esta bloqueada
+        //setea las variables en true, al terminar de recorrer los dos arreglos si las variables siguen en falso quiere decir que no hay mas fichas
+        //muestro cartel y texto de empate
         let fichas1 = false
         let fichas2 = false
         this.fichasTeam1.forEach(ficha => {
